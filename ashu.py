@@ -3,7 +3,7 @@ app = Flask(__name__)
 
 @app.route('/') 
 def hello(): 
-	return "welcome to the Oracle web app with python in DevSecOPs this is change new  !!"
+	return "welcome to the Jenkins pipelines  !!"
 
 @app.route('/oracle') 
 def hello1():
