@@ -7,7 +7,7 @@ def hello():
 
 @app.route('/oracle') 
 def hello1():
-	return "Welcome to ORacle Containerization process !!"
+	return "Welcome to ORacle Containerization process with deployment using shell script !!"
 
 
 if __name__ == "__main__": 
