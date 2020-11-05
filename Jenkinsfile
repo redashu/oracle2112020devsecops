@@ -21,6 +21,7 @@ stages {
               steps {
                       
                       sh 'cd jspapp-master ; mvn clean package'
+                      sh 'chmod 755 jspapp-master/target/ -R'
               
               }
         }
