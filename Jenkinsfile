@@ -27,7 +27,7 @@ stages {
         
         stage('deploy war file in local docker engine'){
                 steps {
-                        sh 'whoami'
+                        sh 'docker-compose up -d'
                 
                 }          
                 
