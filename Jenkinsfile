@@ -16,6 +16,16 @@ stages {
              }
         }
         
+        stage('SAST for check sec/access keys in SCM'){
+                steps {
+                        sh 'docker run --rm  gesellix/trufflehog  --json https://github.com/redashu/webdevsummer2020.git >myappbugs.txt'
+                        sh 'cat myappbugs.txt'
+                        
+                
+                }       
+                
+                
+        }
         stage('building java project ') {
         
               steps {
