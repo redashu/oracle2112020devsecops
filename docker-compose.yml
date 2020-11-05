@@ -1,8 +1,10 @@
 version: "3.8" # latest version of Dockerfile
 services:
- ashuwebapp1: # name of application 
-  image: dockerashu/oracleflask:v0011  # the same image we build in build step 
-  container_name: ashuxc111
+ ashujavaapp1: # name of application 
+  image: tomcat  # the same image we build in build step 
+  container_name: ashujavac1
   ports:
-  - "4411:5000"
+  - "5511:8080"
+  volumes:
+  - "./jspapp-master/target:/usr/local/tomcat/webapps/"
   
