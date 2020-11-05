@@ -1,3 +1,11 @@
+# creating namespace 
+apiVersion: v1
+kind: Namespace
+metadata:
+ name: ashu-space
+ 
+# Below definition is to deploy application in k8s cluster under ashu-space namespace
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -5,8 +13,9 @@ metadata:
   labels:
     app: ashuhtmlapp
   name: ashuhtmlapp
+  namespace: ashu-space  # using namespace to deploy applicaiton here 
 spec:
-  replicas: 1
+  replicas: 3  # i need 3 PODs for my application to balance the load and traffic 
   selector:
     matchLabels:
       app: ashuhtmlapp
@@ -22,3 +31,21 @@ spec:
         name: oracleweb
         resources: {}
 status: {}
+
+# Exposing deployment to create service so that endusers can access using ClusterIP with some port number 
+---
+apiVersion: v1
+kind: Service
+metadata:
+ name: ashu-svc-1 # name of service 
+ namespace: ashu-space
+spec:
+ ports:
+ - name: webport
+   port: 1231
+   protocol: TCP
+   targetPort: 80 # it must be same as your original app port 
+ type: LoadBalancer 
+ selector: # use of selector to find the pod with below given labels / tag 
+  app: ashuhtmlapp 
+ 
