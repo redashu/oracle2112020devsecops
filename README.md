@@ -1,4 +1,2 @@
-# oracle2112020devsecops
-## just testing build by fake commit 
-
-## one more fake commit
+# Java web application 
+## writing steps to build java project using maven 
